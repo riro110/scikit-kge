@@ -129,6 +129,7 @@ class StochasticTrainer(object):
         idx = np.arange(len(xys))
         self.batch_size = np.ceil(len(xys) / self.nbatches)
         batch_idx = np.arange(self.batch_size, len(xys), self.batch_size)
+        batch_idx = batch_idx.astype(np.int32)
 
         for self.epoch in range(1, self.max_epochs + 1):
             # shuffle training examples
